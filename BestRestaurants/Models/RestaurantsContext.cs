@@ -8,5 +8,8 @@ namespace BestRestaurants.Models
     public DbSet<Cuisine> Cuisines { get; set; }
 
     public RestaurantsContext(DbContextOptions options) : base(options) { }
+
+
   }
+
 }

@@ -11,6 +11,8 @@
   <h3>No restaurants have been added yet!</h3>
 }
 
+<p><strong>NOTE:</strong> You need to have at least one restaurant before you can add an cuisine!</p>
+
 <ul>
   @foreach (Restaurant restaurant in Model)
   {
@@ -20,4 +22,5 @@
 
 <p>@Html.ActionLink("Add new restaurant", "Create")</p>
 <p>@Html.ActionLink("Add new cuisine", "Create", "Cuisine")</p>
+
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

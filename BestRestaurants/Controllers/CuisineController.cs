@@ -3,6 +3,7 @@ using BestRestaurants.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace BestRestaurants.Controllers
 {
@@ -31,18 +32,23 @@ namespace BestRestaurants.Controllers
     [HttpPost]
     public ActionResult Create(Cuisine cuisine)
     {
+
       if (cuisine.RestaurantId == 0)
       {
         return RedirectToAction("Create");
       }
       _db.Cuisines.Add(cuisine);
+
       _db.SaveChanges();
       return RedirectToAction("Index");
+
     }
 
     public ActionResult Details(int id)
     {
-      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      Cuisine thisCuisine = _db.Cuisines
+        // .Include(cuisine => cuisine.Restaurant)
+        .FirstOrDefault(cuisine => cuisine.CuisineId == id);
       return View(thisCuisine);
     }
 

@@ -4,14 +4,12 @@
 
 @model BestRestaurants.Models.Restaurant
 
-<p><strong>NOTE:</strong> You need to have at least one restaurant before you can add an cuisine!</p>
-<p>Go to @Html.ActionLink("this page", "Create", "Restaurants") to create a restaurant.</p>
 
 <h4>Add a new restaurant</h4>
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
-  <input type="submit" value="Add new restaurant" />
+  <input type="submit" value="Add a new restaurant" />
 }
 <p>@Html.ActionLink("Show all restaurants", "Index")</p>
